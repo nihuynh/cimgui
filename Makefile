@@ -10,7 +10,7 @@ SRC =	cimgui.cpp 					\
 
 OBJS = $(SRC:.cpp=.o)
 
-CXXFLAGS= -O2 -Wall -Wextra -Werror -Wno-return-type-c-linkage
+CXXFLAGS= -O2 -Wall
 
 UNAME_S := $(shell uname -s)
 
@@ -26,10 +26,11 @@ endif
 ifeq ($(UNAME_S), Darwin) #APPLE
 	ECHO_MESSAGE = "macOS"
 
-	OUTPUTNAME = cimgui.dylib
-	CXXFLAGS += -I/usr/local/include -I includes
-	LINKFLAGS = -dynamiclib
-	CFLAGS = $(CXXFLAGS)
+	OUTPUTNAME	=	cimgui.dylib
+	CXXFLAGS	+=	-Wextra -Werror -Wno-return-type-c-linkage
+	CXXFLAGS	+=	-I/usr/local/include -I includes
+	LINKFLAGS	=	-dynamiclib
+	CFLAGS		=	$(CXXFLAGS)
 endif
 
 ifeq ($(OS), Windows_NT)
