@@ -5,7 +5,6 @@ cmake_minimum_required(VERSION 2.8)
 include_directories(imgui)
 add_definitions("-DIMGUI_DISABLE_OBSOLETE_FUNCTIONS=1")
 
-include_directories(.)
 set(IMGUI_SOURCES ./cimgui.cpp ./imgui/imgui.cpp ./imgui/imgui_draw.cpp ./imgui/imgui_demo.cpp ./imgui/imgui_widgets.cpp)
 
 set(IMGUI_LIBRARIES )
@@ -26,6 +25,7 @@ else (IMGUI_STATIC)
 endif (IMGUI_STATIC)
 
 target_link_libraries(cimgui ${IMGUI_LIBRARIES})
+target_include_directories(cimgui PUBLIC includes)
 set_target_properties(cimgui PROPERTIES PREFIX "")
 
 #install
