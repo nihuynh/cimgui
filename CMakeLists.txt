@@ -15,7 +15,7 @@ else(WIN32)
     add_definitions("-DIMGUI_IMPL_API=extern \"C\" ")
 endif(WIN32)
 
-set(IMGUI_STATIC "no" CACHE STRING "Build as a static library")
+set(IMGUI_STATIC "yes" CACHE STRING "Build as a static library")
 
 #add library and link
 if (IMGUI_STATIC)
